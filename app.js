@@ -5,29 +5,36 @@ const personne = function (SonNom, SonPrenom, SonAge, SonSexe, SonJob) {
     this.sexe = SonSexe ;
     this.job = SonJob ;
 
-}
-this.getNomPrenom = function (){
-    return this.nom + " " + this.prenom.join(',');
-}
+    this.getNomPrenom= function (){
+        return this.nom + " " + this.prenom + " " + this.age+ " " + this.sexe ;
+    }
 
-this.getAge = function (){
-    return this.age.join(',');
-}
+    this.changeElement = function (newAge, newSexe){
+        this.age = newAge;
+        this.sexe = newSexe;
 
-this.getSexe = function (){
-    return this.sexe.join(',');
+    }
 
 }
 
-this.getJob = function (){
-    return this.job.join(',');
-}
 
 
-let kevin = new personne ('Mura', 'kevin', '28', 'masculin', 'eleve a UPTO');
-let uluberlu = new personne ('Ulu', 'berlu', '50', 'feminin', 'police');
+let kevin = new personne ('Mura', 'kevin', 28, 'masculin', 'eleve a UPTO');
+document.getElementById('propriete1').innerHTML= kevin.nom;
+document.getElementById('propriete2').innerHTML= kevin.prenom;
+document.getElementById('propriete3').innerHTML= kevin.age;
+document.getElementById('propriete4').innerHTML= kevin.sexe;
+document.getElementById('propriete5').innerHTML= kevin.job;
+document.getElementById('method1').innerHTML= kevin.getNomPrenom();
+kevin.changeElement(60, 'feminim');
+document.getElementById('method2').innerHTML = kevin.getNomPrenom();
 
-perso1 = document.getElementById('perso1');
-perso1.innerText = kevin;
-perso2 = document.getElementById('perso2');
-perso2.innerHTML = uluberlu ;
+let uluberlu = new personne ('Ulu', 'berlu', 50, 'feminin', 'police');
+document.getElementById('propriete6').innerHTML=  uluberlu.nom;
+document.getElementById('propriete7').innerHTML=  uluberlu.prenom;
+document.getElementById('propriete8').innerHTML=  uluberlu.age;
+document.getElementById('propriete9').innerHTML=  uluberlu.sexe;
+document.getElementById('propriete10').innerHTML= uluberlu.job;
+document.getElementById('method3').innerHTML= uluberlu.getNomPrenom();
+uluberlu.changeElement(60, 'feminim');
+document.getElementById('method4').innerHTML = uluberlu.getNomPrenom();
